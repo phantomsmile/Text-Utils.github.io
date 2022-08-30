@@ -54,7 +54,7 @@ export default function TestForm(props) {
   const [words, setWords] = useState("0");
   return (
     <>
-      <div className="container" style={{color: props.mode=== 'dark'?'white':'black', height: '61.5vh'}}>
+      <div className="container" style={{color: props.mode=== 'dark'?'white':'black', height: 'auto'}}>
         <h1>{props.heading}</h1>
         <div className="mb-3">
           <textarea
@@ -65,19 +65,19 @@ export default function TestForm(props) {
             rows="8"
           ></textarea>
         </div>
-        <button className="btn btn-primary mx-2" onClick={handleUpClick} style={{background: props.mode=== 'dark'?'white':'black', color: props.mode=== 'dark'?'black':'white'}}>
+        <button className="btn btn-primary my-2 mx-2" onClick={handleUpClick} style={{background: props.mode=== 'dark'?'white':'black', color: props.mode=== 'dark'?'black':'white'}}>
           Convert to UPPERCASE
         </button>
-        <button className="btn btn-primary mx-2" onClick={handleDownClick} style={{background: props.mode=== 'dark'?'white':'black', color: props.mode=== 'dark'?'black':'white'}}>
+        <button className="btn btn-primary my-2 mx-2" onClick={handleDownClick} style={{background: props.mode=== 'dark'?'white':'black', color: props.mode=== 'dark'?'black':'white'}}>
           Convert to lowercase
         </button>
-        <button className="btn btn-primary mx-2" onClick={replaceText} style={{background: props.mode=== 'dark'?'white':'black', color: props.mode=== 'dark'?'black':'white'}}>
+        <button className="btn btn-primary my-2 mx-2" onClick={replaceText} style={{background: props.mode=== 'dark'?'white':'black', color: props.mode=== 'dark'?'black':'white'}}>
           Replace first occurence
         </button>
-        <button className="btn btn-primary mx-2" onClick={replaceTextAll} style={{background: props.mode=== 'dark'?'white':'black', color: props.mode=== 'dark'?'black':'white'}}>
+        <button className="btn btn-primary my-2 mx-2" onClick={replaceTextAll} style={{background: props.mode=== 'dark'?'white':'black', color: props.mode=== 'dark'?'black':'white'}}>
           Replace all occurences
         </button>
-        <button className="btn btn-primary mx-2" onClick={reverseWords} style={{background: props.mode=== 'dark'?'white':'black', color: props.mode=== 'dark'?'black':'white'}}>
+        <button className="btn btn-primary my-2 mx-2" onClick={reverseWords} style={{background: props.mode=== 'dark'?'white':'black', color: props.mode=== 'dark'?'black':'white'}}>
           Reverse Words
         </button>
         <button className="btn btn-primary my-2 mx-2" onClick={handleCopy} style={{background: props.mode=== 'dark'?'white':'black', color: props.mode=== 'dark'?'black':'white'}}>
