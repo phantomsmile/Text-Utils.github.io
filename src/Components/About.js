@@ -1,11 +1,20 @@
 import React from "react";
 
 export default function About(props) {
+  // const [myStyle, setMyStyle] = useState({
+  //   color: 'black',
+  //   backgroundColor: 'white'
+  // })
+  let myStyle = {
+    color: props.mode ==='dark'?'white':'#5573d1',
+    backgroundColor: props.mode === 'dark'?'#5573d1':'white',
+    borderRadius: '5px'
+  }
   return (
-    <div className="container " style= {{backgroundColor: props.mode=== 'dark'?'grey':'white', color: props.mode=== 'dark'?'white':'black', paddingBottom: '12px', borderRadius: '10px'}}>
-      <h1 className="my-3">About Us</h1>
-      <div className="accordion" id="accordionExample">
-        <div className="accordion-item">
+    <div className="container py-2" style= {{color: props.mode ==='dark'?'white':'#042743',}}>
+      <h1 className="my-1">About Us</h1>
+      <div className="accordion my-1" id="accordionExample" style= {myStyle}>
+        <div className="accordion-item" style= {myStyle}>
           <h2 className="accordion-header" id="headingOne">
           </h2>
           <div>
@@ -21,7 +30,7 @@ export default function About(props) {
             </div>
           </div>
         </div>
-        <div className="accordion-item">
+        <div className="accordion-item" style= {myStyle}>
           <div>
             <div className="accordion-body">
               <strong>This is the second item's accordion body.</strong> It is
@@ -35,9 +44,9 @@ export default function About(props) {
             </div>
           </div>
         </div>
-        <div className="accordion-item">
+        <div className="accordion-item" style= {myStyle}>
           <div>
-            <div className="accordion-body">
+            <div className="accordion-body" style= {myStyle}>
               <strong>This is the third item's accordion body.</strong> It is
               hidden by default, until the collapse plugin adds the appropriate
               classes that we use to style each element. These classes control

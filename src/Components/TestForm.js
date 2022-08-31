@@ -47,6 +47,7 @@ export default function TestForm(props) {
 
   const handleCopy = ()=>{
     navigator.clipboard.writeText(text);
+    document.getSelection().removeAllRanges();
     props.showAlert("Text was copied to clipboard","success");
   };
 
@@ -60,30 +61,30 @@ export default function TestForm(props) {
           <textarea
             className="form-control"
             value={text}
-            onChange={handleOnChange} style= {{backgroundColor: props.mode=== 'dark'?'grey':'white', color: props.mode=== 'dark'?'white':'black'}}
+            onChange={handleOnChange} style= {{backgroundColor: props.mode=== 'dark'?'#5573d1':'white', color: props.mode=== 'dark'?'white':'black'}}
             id="myBox"
             rows="8"
           ></textarea>
         </div>
-        <button className="btn btn-primary my-2 mx-2" onClick={handleUpClick} style={{background: props.mode=== 'dark'?'white':'black', color: props.mode=== 'dark'?'black':'white'}}>
+        <button className="btn btn-primary my-2 mx-2" disabled={text.length===0} onClick={handleUpClick} style={{background: props.mode=== 'dark'?'white':'black', color: props.mode=== 'dark'?'black':'white'}}>
           Convert to UPPERCASE
         </button>
-        <button className="btn btn-primary my-2 mx-2" onClick={handleDownClick} style={{background: props.mode=== 'dark'?'white':'black', color: props.mode=== 'dark'?'black':'white'}}>
+        <button className="btn btn-primary my-2 mx-2" disabled={text.length===0}  onClick={handleDownClick} style={{background: props.mode=== 'dark'?'white':'black', color: props.mode=== 'dark'?'black':'white'}}>
           Convert to lowercase
         </button>
-        <button className="btn btn-primary my-2 mx-2" onClick={replaceText} style={{background: props.mode=== 'dark'?'white':'black', color: props.mode=== 'dark'?'black':'white'}}>
+        <button className="btn btn-primary my-2 mx-2" disabled={text.length===0}  onClick={replaceText} style={{background: props.mode=== 'dark'?'white':'black', color: props.mode=== 'dark'?'black':'white'}}>
           Replace first occurence
         </button>
-        <button className="btn btn-primary my-2 mx-2" onClick={replaceTextAll} style={{background: props.mode=== 'dark'?'white':'black', color: props.mode=== 'dark'?'black':'white'}}>
+        <button className="btn btn-primary my-2 mx-2" disabled={text.length===0}  onClick={replaceTextAll} style={{background: props.mode=== 'dark'?'white':'black', color: props.mode=== 'dark'?'black':'white'}}>
           Replace all occurences
         </button>
-        <button className="btn btn-primary my-2 mx-2" onClick={reverseWords} style={{background: props.mode=== 'dark'?'white':'black', color: props.mode=== 'dark'?'black':'white'}}>
+        <button className="btn btn-primary my-2 mx-2" disabled={text.length===0}  onClick={reverseWords} style={{background: props.mode=== 'dark'?'white':'black', color: props.mode=== 'dark'?'black':'white'}}>
           Reverse Words
         </button>
-        <button className="btn btn-primary my-2 mx-2" onClick={handleCopy} style={{background: props.mode=== 'dark'?'white':'black', color: props.mode=== 'dark'?'black':'white'}}>
+        <button className="btn btn-primary my-2 mx-2" disabled={text.length===0}  onClick={handleCopy} style={{background: props.mode=== 'dark'?'white':'black', color: props.mode=== 'dark'?'black':'white'}}>
           Copy to clipboard
         </button>
-        <button className="btn btn-primary my-2 mx-2" onClick={handleReset} style={{background: props.mode=== 'dark'?'white':'black', color: props.mode=== 'dark'?'black':'white'}}>
+        <button className="btn btn-primary my-2 mx-2" disabled={text.length===0}  onClick={handleReset} style={{background: props.mode=== 'dark'?'white':'black', color: props.mode=== 'dark'?'black':'white'}}>
           Reset
         </button>
       </div>
@@ -91,10 +92,10 @@ export default function TestForm(props) {
         <h2>Your text summary</h2>
         <p>
           {words} words and {text.length} characters and time required to read
-          this will be {text.split(" ").length * 0.008} minutes
+          this will be {text.split(" ").filter((element)=>{return element.length!==0}).length * 0.008} minutes
         </p>
         <h2>Preview</h2>
-        <p>{text.length>0?text.trim():"Enter your text above to preview here"}</p>
+        <p>{text.length>0?text.trim():"Nothing to previw!!"}</p>
       </div>
     </>
   );
